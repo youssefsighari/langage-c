@@ -1,67 +1,63 @@
 #include <stdio.h>
 
+typedef struct etud
+{
+    int nce;
+    char nom[20];
+    char prenom[20];
+    int niveau;
+    float moyenne;
+    int nb_matieres;
+} etud;
 
- typedef struct etudiant{
-     int nce;
-     char nom[20];
-     char prenom[20];
-     int niveau;
-     float moyenne ;
-     int nb_matieres;
- } etudiant;
- 
- 
- struct matieres{
-     char nom[20];
-     int coeff;
-     float note;
- }
- 
- void saisie_etudiant(etud){
-     printf("donner nce: ");
-     scanf("%d\n",nce);
-     printf("donner le nom: ");
-     scanf("%s\n",nom);
-     printf("donner le prenom: ");
-     scanf("%s\n",prenom);
-     printf("donner le niveau: ");
-     scanf("%d\n",niveau);
-     printf("donner le nombre des matieres: ");
-     scanf("%d\n",nb_matieres);
- }
- 
-   int moyenne(int s, int s1, int i, int nb_matieres ){
+typedef struct matiere
+{
+    char nom[20];
+    int coeff;
+    float note;
+} matiere;
 
-     s=0;
-     for(i=0; i<=nb_matieres; i++){
-         s=s+( matieres.note[i] * matieres.coeff[i]) ;
-     }
-      
-    s1=0;
-    for(i=0; i<nb_matieres; i++){
-        s1=s1+ matieres.coeff;
+
+matiere tab[12];
+
+
+void saisie_etud(etud *E)
+{
+    printf("donner nce: ");
+    scanf("%d", &(*E).nce);
+    printf("\ndonner le nom: ");
+    scanf("%s", &(*E).nom);
+    printf("\ndonner le prenom: ");
+    scanf("%s", &(*E).prenom);
+    printf("\ndonner le niveau: ");
+    scanf("%d", &(*E).niveau);
+    printf("\ndonner le nombre des matieres: ");
+    scanf("%d\n", &(*E).nb_matieres);
+}
+
+float calculer_moyenne(int nb_matiere)
+{
+    struct matiere matiere;
+    float s = 0;
+    int i;
+    for (i = 0; i <= 12; i++)
+    {
+        s = s + tab[i].note * tab[i].coeff;
     }
 
+    float s1 = 0;
+    for (i = 0; i <= 12; i++)
+    {
+        s1 = s1 + tab[i].coeff;
+    }
 
-    moyenne=s/s1;
+    float moyenne = s / s1;
 
-       return moyenne;
-   }
-    
-   
-
+    return moyenne;
+}
 
 int main()
 {
-   
- 
- 
 
-   
-
-   
-   
-   
-   return 0;
-   
+    return 0;
 }
