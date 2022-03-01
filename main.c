@@ -15,11 +15,9 @@ typedef struct matiere
     char nom[20];
     int coeff;
     float note;
-} matiere;
-
+} matiere; 
 
 matiere tab[12];
-
 
 void saisie_etud(etud *E)
 {
